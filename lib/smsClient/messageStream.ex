@@ -1,9 +1,9 @@
-defmodule SmsClient.Messenger do
+defmodule SmsClient.MessageStream do
  
 
 #Use function as follows:
-# SmsClient.Messenger.send_message("+17817677045", "your phone number", "message-body")
-
+# SmsClient.MessageStream.send_message("+17817677045", "your phone number", "message-body")
+# All numbers need to be verified before using
  
  #Function to send sms
   def send_message(from, to, body) do
