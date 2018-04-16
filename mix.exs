@@ -20,9 +20,8 @@ defmodule SmsClient.Mixfile do
 
   def application do
     [
-      applications: [:httpoison],
-      mod: {SmsClient, []},
-      extra_applications: [:logger,:runtime_tools]
+      mod: {SmsClient.Application, []},
+      extra_applications: [:logger,:runtime_tools, :httpoison]
     ]
   end
 
