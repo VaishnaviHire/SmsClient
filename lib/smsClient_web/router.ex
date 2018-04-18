@@ -21,7 +21,12 @@ defmodule SmsClientWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", SmsClientWeb do
-  #   pipe_through :api
-  # end
+   scope "/api/v1", SmsClientWeb do
+     pipe_through :api
+     resources "/messages", MessageController, except: [:new, :edit]
+     resources "/users", UserController, except: [:new, :edit]
+     resources "/phones", PhoneController, except: [:new, :edit]
+     resources "/receivedmessage", ReceivedMessageController, except: [:new, :edit]
+     post "/token", TokenController, :create
+   end
 end
