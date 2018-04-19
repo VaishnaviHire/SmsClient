@@ -11,9 +11,15 @@ import api from '../api';
 import utils from '../util';
 import SentMessages from './sent_messages';
 import ReceivedMessages from './received_messages';
+import socket from "../socket"
 
 export default function sms_init(store) {
 	let root = document.getElementById('root');
+
+	if (root) {
+		let channel = socket.channel("twilio", {});
+	}
+
 	ReactDOM.render(
 		<Provider store={store}>
 		<Sms state={store.getState()}/>
