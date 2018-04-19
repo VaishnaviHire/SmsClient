@@ -51,7 +51,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :smsClient, SmsClient.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "tasktracker",
+  username: "user1",
   password: "...",
   database: "smsclient_dev",
   hostname: "localhost",

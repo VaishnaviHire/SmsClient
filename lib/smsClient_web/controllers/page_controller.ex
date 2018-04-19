@@ -1,5 +1,8 @@
 defmodule SmsClientWeb.PageController do
   use SmsClientWeb, :controller
+  
+	alias SmsClient.ReceivedMessages
+  alias SmsClient.ReceivedMessages.ReceivedMessage
 
   def index(conn, _params) do
     render conn, "index.html"
@@ -7,6 +10,11 @@ defmodule SmsClientWeb.PageController do
 
  def message_receive(conn, _params) do
     IO.inspect(_params)
+    IO.inspect(Map.get(_params,"Body"))
+    rc_params = %{from: Map.get(_params,"From"), to: Map.get(_params, "To"), body: Map.get(_params, "Body")}
+    with {:ok, %ReceivedMessage{} = received_message} <- ReceivedMessages.create_received_message(rc_params) do
+	IO.puts("Message received")
+    end
    # IO.inspect(to)
    # IO.inspect(from)
    render conn, "message_receive.html"
