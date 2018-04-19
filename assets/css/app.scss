@@ -1,2 +1,12 @@
 /* This file is for your main application css. */
 @import "bootstrap";
+
+ @media (max-width :768px){
+                .mainbar {
+                        display: none;
+                }
+                .drop {
+                        display:block;
+                }
+        }
+
