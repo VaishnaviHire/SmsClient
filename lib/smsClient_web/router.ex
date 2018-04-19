@@ -17,7 +17,7 @@ defmodule SmsClientWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/message_receive", PageController, :message_receive
+    get "/message_receive", MessageController, :message_receive
   end
 
   # Other scopes may use custom stacks.
