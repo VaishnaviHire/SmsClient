@@ -2,7 +2,7 @@
 @import "bootstrap";
 
  @media (max-width :768px){
-                .mainbar {
+                .mainbar, hide {
                         display: none;
                 }
                 .drop {
