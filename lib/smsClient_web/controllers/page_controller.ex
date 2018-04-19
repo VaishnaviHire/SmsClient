@@ -11,12 +11,12 @@ defmodule SmsClientWeb.PageController do
    # IO.inspect(from)
    render conn, "message_receive.html"
 
-response =  """  
-<?xml version="1.0" encoding="UTF-8" ?>
-<Response>
+ response =  """  
+ <?xml version="1.0" encoding="UTF-8" ?>
+ <Response>
     <Message>Hello World!</Message>
-</Response>
-"""
+ </Response>
+ """
 
 conn
 |> put_resp_header("Content-Type", "text/xml")
