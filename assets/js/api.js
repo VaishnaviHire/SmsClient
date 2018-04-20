@@ -34,6 +34,7 @@ class Server{
                         data: JSON.stringify(login),
                         success: (resp) =>{
                                 if(utils.is_empty(resp.error)){
+                                       localStorage.setItem("sms-user", resp.token);
                                         store.dispatch({
                                         type:'SET_TOKEN',
 					token: resp.token

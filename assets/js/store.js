@@ -1,7 +1,10 @@
 import { createStore, combineReducers } from 'redux';
 import deepFreeze from 'deep-freeze';
 
-function messages(state=[], action){
+const initialState = { 
+          token: localStorage.getItem("sms-user"),}
+
+function messages(state=initialState, action){
 	switch(action.type){
 		case 'FETCH_MESSAGES':
 			return Object.assign([], state, action.messages);
@@ -10,7 +13,7 @@ function messages(state=[], action){
 	}
 }
 
-function received_messages(state=[], action){
+function received_messages(state=initialState, action){
         switch(action.type){
                 case 'FETCH_RECEIVE':
                         return Object.assign([], state, action.received_messages);
@@ -20,7 +23,7 @@ function received_messages(state=[], action){
 }
 
 
-function phones(state=[], action){
+function phones(state=initialState, action){
 	switch(action.type){
 		case 'FETCH_PHONES':
 			return action.phones;
@@ -29,7 +32,7 @@ function phones(state=[], action){
 	}
 }
 
-function user(state={}, action){
+function user(state=initialState, action){
 	switch(action.type){
 		case 'LOGIN':
 			return action.user;
@@ -41,7 +44,7 @@ function user(state={}, action){
 }
 
 
-function token(state=null, action){
+function token(state=initialState, action){
 	switch(action.type){
 		case 'SET_TOKEN':
 			return action.token;
@@ -53,14 +56,15 @@ function token(state=null, action){
 }
 
 let loginState = {
-	name:"",
-	pass: "",
-	err:""
+	token: localStorage["sms-user"],
 };
 
 function login(state = loginState, action){
+     
 	switch(action.type){
+               
 		case 'USER_LOGIN':
+                       
 			return Object.assign({}, state, action.logindata);
 		case 'CLEAR_LOGIN':
 			return loginState;
@@ -88,7 +92,7 @@ function newuser(state = newuserobj, action){
 }
 
 let redirObj = {
-	redirect_to: null,
+	redirect_to: "/",
 	can_redirect: false
 };
 function redirect(state=redirObj, action){
@@ -127,7 +131,8 @@ function message(state=newMessageObj, action){
 function root_reducer(state0, action){
 	console.log("out state",state0);
 	let reducer = combineReducers({messages, user, token, login, newuser, redirect, message, phones, received_messages});
-	let state1 = reducer(state0, action);
+        
+  	let state1 = reducer(state0, action);
 	console.log("After update", state1);
 	return deepFreeze(state1);
 }
