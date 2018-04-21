@@ -7,7 +7,7 @@ import api from '../api';
 
 
 function PhonebookForm(props){
-        console.log("******************", props)
+        console.log(props)
 
        // let phones = props.phones.map((uu) => <option key={uu.id} value={uu.phone_number}>{uu.phone_number}</option>);
 
