@@ -16,7 +16,7 @@ import SentMessages from './sent_messages';
 import ReceivedMessages from './received_messages';
 import { browserHistory } from 'react-router'
 import {ReduxRouter, syncHistoryWithStore, routerReducer } from 'react-router-redux'
-
+import PhonebookForm from './phonebook_form'
 
 
 export default function sms_init() {
@@ -70,6 +70,11 @@ let Sms = connect((state) => state)((props) => {
                         <ReceivedMessages />
           }
           />
+             <Route path="/phonebook" exact={true} render = {() =>
+                        <PhonebookForm />
+          }
+          />
+
         </div>
       </Router>
     );

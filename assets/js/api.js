@@ -69,6 +69,26 @@ class Server{
 		});
 	
 	}
+
+
+       add_phone(data){
+                $.ajax("/api/v1/phones",{
+                        method:"post",
+                        dataType:"json",
+                        contentType:"application/json; charset=UTF-8",
+                        data: JSON.stringify({phone:data}),
+                        success: (resp) =>{
+                                store.dispatch({
+                                        type:'CLEAR_PHONE'
+                                });
+                                store.dispatch({type:'ADD_PHONE'});
+                                alert('Contact Number added successfully');
+                                utils.redirect("/");
+                        }
+                });
+
+        }
+
 	get_phones(){
 		$.ajax("api/v1/phones",{
 			method:"get",

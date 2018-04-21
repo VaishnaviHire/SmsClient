@@ -12,6 +12,7 @@ function Nav(props){
         SMS Client
       </span>
       <ul className="navbar-nav mr-auto hide">
+
         <NavItem>
           <NavLink to="/" exact={true} activeClassName="active" className="nav-link hide">Home</NavLink>
         </NavItem>
@@ -24,7 +25,12 @@ function Nav(props){
     	<NavItem>
           <NavLink to="/sentmessages" href="#" className="nav-link hide">Sent Messages</NavLink>
         </NavItem>
+        <NavItem>
+       <NavLink to="/phonebook" href="#" className="nav-link hide"> Phone Book </NavLink>
+        </NavItem>
+
       </ul>
+
       <span className="navbar-text hide">
         {props.user.name}
       </span>
@@ -55,6 +61,10 @@ function Nav(props){
           <NavItem>
             <NavLink to="/sentmessages" href="#" className="nav-link">Sent Messages</NavLink>
           </NavItem>
+          <NavItem>
+             <NavLink to="/phonebook" href="#" className="nav-link hide"> Phone Book </NavLink>
+        </NavItem>
+
         </ul>
         <span className="navbar-text username">
           {props.user.name}

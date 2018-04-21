@@ -9,7 +9,8 @@ function LoginForm(props){
 		let tgt = $(ev.target)
 		let logindata = {}
 		logindata[tgt.attr('name')]=*/
-	function create_token(ev){
+	
+        function create_token(ev){
 		console.log('login');
 		api.user_login(props.login);
 	}

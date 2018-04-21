@@ -129,9 +129,26 @@ function message(state=newMessageObj, action){
 	}
 }
 
+let newPhoneObj = {
+  phone_number: "",
+}
+
+
+
+function phone(state=newPhoneObj, action){
+        switch(action.type){
+                case 'NEW_PHONE':
+                        return Object.assign({}, state, action.phone);
+                case 'CLEAR_PHONE':
+                        return newPhoneObj;
+                default:
+                        return state;
+        }
+}
+
 function root_reducer(state0, action){
 	console.log("out state",state0);
-	let reducer = combineReducers({messages, user, token, login, newuser, redirect, message, phones, received_messages});
+	let reducer = combineReducers({messages, user, token, login, newuser, redirect, message, phones, received_messages, phone});
 	let state1 = reducer(state0, action);
 	console.log("After update", state1);
         return state1;
