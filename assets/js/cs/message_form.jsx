@@ -8,7 +8,7 @@ import api from '../api';
 
 function MessageForm(props){
 
-	let phones = props.phones.map((uu) => <option key={uu.id} value={uu.phone_number}>{uu.phone_number}</option>);
+//	let phones = props.phones.map((uu) => <option key={uu.id} value={uu.phon//e_number}>{uu.phone_number}</option>);
 
 	function update(ev){
 		let tgt = $(ev.target);
@@ -46,9 +46,9 @@ function MessageForm(props){
 				<Form>
 					<FormGroup>
 						<Label for="to_number">To (number)</Label>
-						<Input type="select"  name="to_number" id="to_number" value={props.message.to_number} onChange={update} >
-						<option value="">Select Sender</option>
-						{ phones }
+						<Input type="text"  name="to_number" id="to_number" value={props.message.to_number} onChange={update} >
+					
+		
 					</Input>
 					</FormGroup>
 					<FormGroup>
