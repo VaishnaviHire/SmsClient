@@ -36,11 +36,11 @@ function UserRegForm(props){
 		//return <Redirect to="/" />
 		//window.location="/";
 	}
-	if (props.redirect.can_redirect){
+//	if (props.redirect.can_redirect){
 		
-		return <Redirect to={utils.clear_redirect(props.redirect.redirect_to)} />
-	}
-	else	
+//		return <Redirect to={utils.clear_redirect(props.redirect.redirect_to)} />
+//	}
+//	else	
 	return (
    <div className="navbar-text">
     <Form >
@@ -73,4 +73,4 @@ function state2props(state){
 	};
 }
 
-export default withRouter(connect(state2props)(UserRegForm));
+export default connect(state2props)(UserRegForm);

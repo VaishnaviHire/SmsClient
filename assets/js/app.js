@@ -20,8 +20,8 @@ import "phoenix_html"
 
 // import socket from "./socket"
 import sms_init from './cs/sms';
-import store from './store';
+//import {store, persistor} from './store';
 
 $(function(){
-	sms_init(store)
+	sms_init()
 });

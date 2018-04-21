@@ -1,5 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, compose } from 'redux';
 import deepFreeze from 'deep-freeze';
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { browserHistory } from 'react-router'
+
 
 function messages(state=[], action){
 	switch(action.type){
@@ -129,8 +134,25 @@ function root_reducer(state0, action){
 	let reducer = combineReducers({messages, user, token, login, newuser, redirect, message, phones, received_messages});
 	let state1 = reducer(state0, action);
 	console.log("After update", state1);
-	return deepFreeze(state1);
+        return state1;
+//	return deepFreeze(state1);
 }
 
-let store = createStore(root_reducer);
-export default store;
+const persistconfig = {
+  key: 'root',
+  storage,
+};
+
+console.log("config", persistconfig)
+
+const persistedReducer = persistReducer(persistconfig, root_reducer);
+console.log("persisted-reducer", persistedReducer)
+
+
+//attribution : redux-persist package and docs
+//https://github.com/rt2zz/redux-persist
+// This package is used to make states persistent. It uses localStorage function to store the states
+
+export const store = createStore(persistedReducer);
+export const persistor = persistStore(store);
+

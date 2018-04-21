@@ -17,6 +17,9 @@ defmodule SmsClientWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/sentmessages", PageController, :index  
+    get "/inbox", PageController, :index
+    get "/newmessage", PageController, :index
     get "/message_receive", MessageController, :message_receive
   end
 

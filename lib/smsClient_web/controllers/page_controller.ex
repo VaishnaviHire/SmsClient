@@ -7,6 +7,10 @@ defmodule SmsClientWeb.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+  
+  def sentmessages(conn, _params) do
+     render conn, "sentmessages.html"
+  end
 
  
 end

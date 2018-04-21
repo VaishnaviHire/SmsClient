@@ -37,7 +37,7 @@ function Nav(props){
         </button>
       </div>
       
-      <!-- collapsed menu -->
+      
       <div id = "navbar-show" className= "collapse">
         <br/>
         <br/>

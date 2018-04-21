@@ -1,5 +1,5 @@
 import React from 'react';
-import store from './store';
+import {store} from './store';
 import utils from './util';
 import { Redirect } from 'react-router-dom';
 
