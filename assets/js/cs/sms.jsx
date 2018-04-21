@@ -43,7 +43,6 @@ let Sms = connect((state) => state)((props) => {
     if (!utils.is_empty(props.token)){
                 
 		utils.clear_redirect(); 	
-		content =<h2> Welcome to SMS Client, {props.user.name}</h2>;
 
     return (
       <Router >
@@ -51,7 +50,7 @@ let Sms = connect((state) => state)((props) => {
           <Nav />
           <Route path="/" exact={true} render={() => 
             <div>
-		{content}
+							<h2> Welcome to SMS Client, {props.user.name}</h2>
             </div>
           } />
 	  <Route path="/register" exact={true} render = {() =>
