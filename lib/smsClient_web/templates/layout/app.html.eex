@@ -21,7 +21,23 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
-
+      <ul>
+        <li>
+          <%= link "Home Page", to: "/" %>
+        </li>
+        <li>
+          <%= link "Inbox", to: "/inbox" %>
+        </li>
+        <li>
+          <%= link "New Message", to: "/newmessage" %>
+        </li>
+        <li>
+          <%= link "Sent Messages", to: "/sentmessages" %>
+        </li>
+        <li>
+          <%= link "Phone Book", to: "/phonebook" %>
+        </li>
+      </ul>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
