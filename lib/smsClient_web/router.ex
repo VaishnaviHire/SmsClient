@@ -20,6 +20,7 @@ defmodule SmsClientWeb.Router do
     get "/sentmessages", PageController, :index  
     get "/inbox", PageController, :index
     get "/newmessage", PageController, :index
+    get "/phonebook", PageController, :index
     get "/message_receive", MessageController, :message_receive
   end
 
