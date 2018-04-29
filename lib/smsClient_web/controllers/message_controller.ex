@@ -94,13 +94,13 @@ def process_response(%HTTPoison.Response{body: body}) do
   end
 
   def message_url do
-    "https://api.twilio.com/2010-04-01/Accounts/AC60fbe196df066115a872f4b2c831c300/Messages.json"
+    "https://api.twilio.com/2010-04-01/Accounts/"sid"/Messages.json"
   end
 
   # function to encode tokens
   defp headers do
-    sid = "AC60fbe196df066115a872f4b2c831c300"
-    auth_token = "c8810eaaf424b90ac63cb52dd14c3c49"
+    sid = "your_sid"
+    auth_token = "your_auth_token"
 
     encoded_token = Base.encode64("#{sid}:#{auth_token}")
 
